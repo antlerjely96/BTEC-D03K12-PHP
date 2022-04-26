@@ -1,3 +1,4 @@
+<a href="them.php">Thêm</a>
 <table border="1" cellpadding="0" cellspacing="0" width="100%">
     <tr>
         <td>Mã user</td>
@@ -7,6 +8,8 @@
         <td>Ngày sinh</td>
         <td>Giới tính</td>
         <td>Địa chỉ</td>
+        <td></td>
+        <td></td>
     </tr>
     <?php
         //Kết nối DB
@@ -31,12 +34,18 @@
                     <?php
                         } else {
                     ?>
-                            Nams
+                            Nam
                     <?php
                         }
                     ?>
                 </td>
                 <td><?php echo $each['dia_chi'];?></td>
+                <td>
+                    <a href="sua.php?ma_user=<?php echo $each['ma_user'];?>">Sửa</a>
+                </td>
+                <td>
+                    <a href="xoa.php?ma_user=<?php echo $each['ma_user'];?>">Xóa</a>
+                </td>
             </tr>
     <?php
         }
