@@ -6,12 +6,10 @@
     $ngay_sinh = $_POST['ngay_sinh'];
     $gioi_tinh = $_POST['gioi_tinh'];
     $dia_chi = $_POST['dia_chi'];
-    //Kết nối DB
-    $connect = mysqli_connect('localhost','root','','d03k12');
-    mysqli_set_charset($connect,'utf8');
+    include_once "../connect/open-connect.php";
     //sql
     $sql = "UPDATE user SET uid = '$email', pwd = '$password', ten_user = '$ho_ten', ngay_sinh = '$ngay_sinh', gioi_tinh = '$gioi_tinh', dia_chi = '$dia_chi' WHERE ma_user = $ma_user";
     mysqli_query($connect, $sql);
-    mysqli_close($connect);
+    include_once "../connect/close-connect.php";
     header("location:danh-sach-user.php");
 ?>

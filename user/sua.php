@@ -1,8 +1,6 @@
 <?php
     $ma_user = $_GET['ma_user'];
-    //Kết nối DB
-    $connect = mysqli_connect('localhost','root','','d03k12');
-    mysqli_set_charset($connect,'utf8');
+    include_once "../connect/open-connect.php";
     //Lấy dữ liệu từ DB ra
     $sql = "SELECT * FROM user WHERE ma_user = $ma_user";
     $result = mysqli_query($connect,$sql);
@@ -29,5 +27,5 @@
 </form>
 <?php
     }
-    mysqli_close($connect);
+    include_once "../connect/close-connect.php";
 ?>

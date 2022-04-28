@@ -1,4 +1,14 @@
-<a href="them.php">Thêm</a>
+<?php
+    $search = "";
+    if(isset($_GET['search'])){
+        $search = $_GET['search'];
+    }
+?>
+<a href="them.php">Thêm</a><br>
+<form action="" method="get">
+    Search: <input type="text" name="search" value="<?php echo $search;?>"><br>
+    <button>Search</button>
+</form>
 <table border="1" cellpadding="0" cellspacing="0" width="100%">
     <tr>
         <td>Mã user</td>
@@ -12,11 +22,9 @@
         <td></td>
     </tr>
     <?php
-        //Kết nối DB
-        $connect = mysqli_connect('localhost','root','','d03k12');
-        mysqli_set_charset($connect,'utf8');
+        include_once "../connect/open-connect.php";
         //Lấy dữ liệu từ DB ra
-        $sql = "SELECT * FROM user";
+        $sql = "SELECT * FROM user WHERE ten_user LIKE '%$search%'";
         $result = mysqli_query($connect,$sql);
         foreach ($result as $each){
     ?>
@@ -49,6 +57,6 @@
             </tr>
     <?php
         }
-        mysqli_close($connect);
+        include_once "../connect/close-connect.php";
     ?>
 </table>
