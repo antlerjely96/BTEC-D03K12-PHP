@@ -75,5 +75,12 @@
                 </a>
             </td>
         </tr>
+        <tr>
+            <td colspan="6">
+                <a href="dat-hang.php">
+                    Đặt hàng
+                </a>
+            </td>
+        </tr>
     </table>
 </form>
